@@ -7,17 +7,17 @@ export default class Stack {
   }
 
   push(data) {
-    let size = this.size++
-    this.storage[size] = data
+    this.size++
+    this.storage[this.size] = data
   }
 
   pop() {
     let size = this.size, deletedData
 
     if (size) {
-      deletedData = this.storage[size - 1]
+      deletedData = this.storage[size]
 
-      delete this.storage[size - 1]
+      delete this.storage[size]
       this.size--
 
       return deletedData
@@ -26,10 +26,8 @@ export default class Stack {
   }
 
   peek() {
-    let size = this.size
-
-    if (size) {
-      return this.storage[size - 1]
+    if (this.size) {
+      return this.storage[this.size]
     }
     return null
   }

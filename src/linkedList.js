@@ -6,6 +6,7 @@ export default class LinkedList {
   constructor() {
     this.head = null
     this.tail = null
+    this.size = 0
   }
 
   getHeadNode() {
@@ -54,13 +55,12 @@ export default class LinkedList {
     if ( !currentNode ) {
       this.head = node
       this.tail = node
-      return node
     }
     else {
       this.tail.next = node
       this.tail = node
     }
-
+    this.size++
   }
 
   insertFirst(data) {
@@ -69,25 +69,32 @@ export default class LinkedList {
     if ( !currentNode ) {
       this.head = node
       this.tail = node
-      return node
     }
     else {
-      this.head.next = node
+      node.next = currentNode
       this.head = node
-      return node
     }
-
+    this.size++
   }
 
-  insertBefore(data) {
-    let currentNode = this.head
+  insertBefore(target, data) {
+    let node = new Node( data ), currentNode = this.head
 
     while (currentNode) {
-      if (currentNode.data === data) {
-        return true
+      if (currentNode.data === target) {
+        node.next = currentNode
+        this.head = node
+        this.size++
+        return
+      }
+      if (currentNode.next.data === target) {
+        node.next = currentNode.next
+        currentNode.next = node
+        this.size++
+        return
       }
       if (currentNode === this.tail) {
-        return false
+        return
       }
       else {
         currentNode = currentNode.next
@@ -96,26 +103,74 @@ export default class LinkedList {
   }
 
   insertAfter(target, data) {
+    let node = new Node( data ), currentNode = this.head
 
+    while (currentNode) {
+      if (currentNode.data === target && currentNode === this.tail) {
+        this.tail.next = node
+        this.tail = node
+        this.size++
+        return
+      }
+      if (currentNode.data === target) {
+        node.next = currentNode.next
+        currentNode.next = node
+        this.size++
+        return
+      }
+      if (currentNode === this.tail) {
+        return
+      }
+      else {
+        currentNode = currentNode.next
+      }
+    }
   }
 
   remove() {
+    let currentNode = this.head
 
+    while (currentNode) {
+      if (currentNode.next === this.tail) {
+        this.tail = currentNode
+        currentNode.next = null
+        this.size--
+        return
+      }
+      else {
+        currentNode = currentNode.next
+      }
+    }
   }
 
   removeFirst() {
+    let currentNode = this.head
 
+    this.head = currentNode.next
+    currentNode = null
+    this.size--
+  }
+
+  size() {
+    return this.size
   }
 
   isEmpty() {
 
   }
 
-  size() {
-
-  }
-
   clear() {
+    // let currentNode = this.head, nextNode = this.head.next
+    //
+    // while (currentNode) {
+    //     nextNode.next = null
+    //     currentNode.next = nextNode
+    //     currentNode = currentNode.next
+    //     this.size--
+    // }
 
+    this.head = this.tail = null
+    this.size = 0
   }
+
 }

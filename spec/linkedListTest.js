@@ -149,10 +149,24 @@ describe('LinkedList', () => {
   })
 
   context('clear()', () => {
-    it('clears the list of all nodes/data.', () => {
+    it('should have a size of 0.', () => {
       linkedListA.clear()
       expect( linkedListA.size )
         .to.equal( 0 )
+    })
+
+    it('should have no head.', () => {
+
+      expect( linkedListA.head )
+        .to.equal( null )
+    })
+  })
+
+  context('isEmpty()', () => {
+    it('determines if the list is empty or not.', () => {
+
+      expect( linkedListA.isEmpty() )
+        .to.equal( true )
     })
   })
 

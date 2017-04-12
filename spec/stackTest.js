@@ -18,5 +18,14 @@ describe('Stack', () => {
       expect(() => myStack.push('foo'))
         .to.alter(() => myStack.length(), { from: 0, to: 1 })
     })
+
+    it('the stack contains the pushed element.', () => {
+      const myStack = new Stack()
+
+      expect( myStack.stored[1] )
+        .to.equal( 'foo' )
+    })
   })
+
+
 })

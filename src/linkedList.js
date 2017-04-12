@@ -156,19 +156,13 @@ export default class LinkedList {
   }
 
   isEmpty() {
-
+    if (this.size === 0) {
+      return true
+    }
+      return false
   }
 
   clear() {
-    // let currentNode = this.head, nextNode = this.head.next
-    //
-    // while (currentNode) {
-    //     nextNode.next = null
-    //     currentNode.next = nextNode
-    //     currentNode = currentNode.next
-    //     this.size--
-    // }
-
     this.head = this.tail = null
     this.size = 0
   }

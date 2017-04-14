@@ -4,7 +4,7 @@ import Set from '../src/set'
 
 chai.use(chaiChange)
 
-describe.only('set', () => {
+describe('set', () => {
 
   it('exists', () => {
     expect(Set).to.be.a('function')

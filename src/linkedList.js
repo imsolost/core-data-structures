@@ -1,7 +1,5 @@
 import Node from '../src/node'
 
-'use strict'
-
 export default class LinkedList {
   constructor() {
     this.head = null
@@ -27,9 +25,9 @@ export default class LinkedList {
       if (currentNode === this.tail) {
         return false
       }
-      else {
-        currentNode = currentNode.next
-      }
+      // else {
+      currentNode = currentNode.next
+      // }
     }
   }
 
@@ -135,7 +133,7 @@ export default class LinkedList {
         this.tail = currentNode
         currentNode.next = null
         this.size--
-        return
+        return 1 //return 1 for success 0 for failure
       }
       else {
         currentNode = currentNode.next

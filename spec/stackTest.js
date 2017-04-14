@@ -5,7 +5,6 @@ import Stack from '../src/stack'
 chai.use(chaiChange)
 
 describe('Stack', () => {
-  'use strict'
   const myStack = new Stack()
   myStack.push('zero')
 

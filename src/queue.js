@@ -1,5 +1,3 @@
-'use strict'
-
 export default class Queue {
   constructor() {
     this.oldestIndex = 1

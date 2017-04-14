@@ -92,13 +92,13 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Priority_queue) [edited]:
 > An abstract data type which is like a regular queue or stack data structure, but where additionally each element has a "priority" associated with it. An element with high priority is served before an element with low priority. If two elements have the same priority, they are served according to their order in the queue.
 
 ```javascript
-const pQueue = new PriorityQueue()
-pQueue.enqueue("pizza", 100) // adds an element with priority (number) to the back of the queue.
-pQueue.front()               // returns the front element (highest priority) in the queue or null if the queue is empty.
-pQueue.back()                // returns the back element (lowest priority) in the queue or null if the queue is empty.
-pQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
-pQueue.isEmpty()             // returns true if the queue is empty or false if not.
-pQueue.length()              // returns the number of elements in the queue.
+const priorityQueue = new PriorityQueue()
+priorityQueue.enqueue("pizza", 100) // adds an element with priority (number) to the back of the queue.
+priorityQueue.front()               // returns the front element (highest priority) in the queue or null if the queue is empty.
+priorityQueue.back()                // returns the back element (lowest priority) in the queue or null if the queue is empty.
+priorityQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
+priorityQueue.isEmpty()             // returns true if the queue is empty or false if not.
+priorityQueue.length()              // returns the number of elements in the queue.
 ```
 
 #### Priority Node

@@ -1,23 +1,23 @@
-'use strict'
-
 export default class Node {
-  constructor(data) {
+  constructor(data, priority = null) {
     this.data = data
-    this.next = undefined
+    this.priority = priority
+    this.next = null
+    this.previous = null
   }
 
   getData() {
-    return this.data.data
+    return this.data
   }
 
   setNext(input) {
-    this.data.next = input
+    this.next = input
     return this
   }
 
   getNext() {
-    if (this.data.next) {
-      return this.data.next
+    if (this.next) {
+      return this.next
     }
     return null
   }

@@ -5,9 +5,8 @@ import Node from '../src/node'
 chai.use(chaiChange)
 
 describe('Node', () => {
-  'use strict'
-  const nodeA = new Node( {data: 'apple'} )
-  const nodeB = new Node( {data: 'banana'} )
+  const nodeA = new Node( 'apple' )
+  const nodeB = new Node( 'banana' )
 
   it('exists', () => {
     expect(Node).to.be.a('function')
@@ -16,7 +15,7 @@ describe('Node', () => {
   context('getData()', () => {
     it('gets the data from the node.', () => {
 
-      expect( nodeA.getData() ).to.equal('apple')
+      expect( nodeA.getData() ).to.equal( 'apple' )
     })
   })
 
@@ -24,7 +23,7 @@ describe('Node', () => {
     it('changes the reference to the next node.', () => {
 
       expect( () => nodeA.setNext( nodeB ) )
-        .to.alter( () => nodeA.data.next, { from: undefined, to: nodeB } )
+        .to.alter( () => nodeA.next, { from: null, to: nodeB } )
     })
 
     it('returns the original.', () => {
@@ -35,7 +34,6 @@ describe('Node', () => {
 
   context('getNext()', () => {
     it('returns the next node', () => {
-      nodeA.setNext(nodeB)
 
       expect( nodeA.getNext() ).to.equal(nodeB)
     })
@@ -45,6 +43,5 @@ describe('Node', () => {
       expect( nodeB.getNext() ).to.equal(null)
     })
   })
-
 
 })

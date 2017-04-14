@@ -22,6 +22,6 @@ export default class Doublelink {
     this.size++
   }
 
-  
+
 
 }
